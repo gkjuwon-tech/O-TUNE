@@ -21,8 +21,7 @@ Paste these into `api/.env` (copy from `api/.env.example`).
 | Variable | Get it from | Notes |
 |---|---|---|
 | `ANTHROPIC_API_KEY` | console.anthropic.com | $5 of credit is plenty for a dev run |
-| `GOOGLE_CSE_API_KEY` | console.cloud.google.com → enable "Custom Search API" → Credentials | Free tier: 100 queries/day |
-| `GOOGLE_CSE_ID` | programmablesearchengine.google.com → create engine, enable "Search the entire web" | The `cx` value |
+| `TAVILY_API_KEY` | app.tavily.com → API keys → create key (`tvly-...`) | Free tier: 1,000 credits/month. Replaces Google CSE since Google dropped "Search the entire web". |
 | `HUGGINGFACE_TOKEN` | huggingface.co/settings/tokens → "Read" scope | Needed to pull Qwen weights |
 | `STRIPE_API_KEY` | dashboard.stripe.com → **toggle to Test mode** → Developers → API keys → secret key (`sk_test_...`) | Free |
 | `STRIPE_WEBHOOK_SECRET` | Run `stripe listen --forward-to localhost:8000/stripe/webhook` and copy the `whsec_...` it prints | Requires `stripe-cli` |

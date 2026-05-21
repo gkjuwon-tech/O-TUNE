@@ -1,4 +1,4 @@
-"""Benchmark agent: Google-search the field, then ask Claude to recommend a base model + quote."""
+"""Benchmark agent: Tavily-search the field, then ask Claude to recommend a base model + quote."""
 from __future__ import annotations
 
 import json
@@ -37,18 +37,31 @@ SEARCH_QUERIES = [
 ]
 
 
-def _google_search(q: str) -> list[dict[str, str]]:
+def _tavily_search(q: str) -> list[dict[str, str]]:
     s = settings()
-    if not (s.google_cse_api_key and s.google_cse_id):
+    if not s.tavily_api_key:
         return []
-    with httpx.Client(timeout=10) as c:
-        r = c.get(
-            "https://www.googleapis.com/customsearch/v1",
-            params={"key": s.google_cse_api_key, "cx": s.google_cse_id, "q": q, "num": 5},
+    with httpx.Client(timeout=15) as c:
+        r = c.post(
+            "https://api.tavily.com/search",
+            headers={"Authorization": f"Bearer {s.tavily_api_key}"},
+            json={
+                "query": q,
+                "search_depth": "basic",
+                "max_results": 5,
+                "include_answer": False,
+            },
         )
         r.raise_for_status()
-        items = r.json().get("items", [])
-        return [{"title": i.get("title", ""), "snippet": i.get("snippet", ""), "link": i.get("link", "")} for i in items]
+        items = r.json().get("results", [])
+        return [
+            {
+                "title": i.get("title", ""),
+                "snippet": i.get("content", ""),
+                "link": i.get("url", ""),
+            }
+            for i in items
+        ]
 
 
 def _gather_evidence(project: Project) -> list[dict[str, Any]]:
@@ -56,10 +69,10 @@ def _gather_evidence(project: Project) -> list[dict[str, Any]]:
     for tpl in SEARCH_QUERIES:
         q = tpl.format(domain=project.domain, task_type=project.task_type)
         try:
-            results = _google_search(q)
+            results = _tavily_search(q)
             evidence.append({"query": q, "results": results})
         except Exception as e:
-            log.warning("google search failed for %s: %s", q, e)
+            log.warning("tavily search failed for %s: %s", q, e)
             evidence.append({"query": q, "results": [], "error": str(e)})
     return evidence
 

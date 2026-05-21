@@ -18,8 +18,7 @@ class Settings(BaseSettings):
     openai_api_key: str = ""
     otune_openai_model: str = "gpt-4o"
 
-    google_cse_api_key: str = ""
-    google_cse_id: str = ""
+    tavily_api_key: str = ""
 
     huggingface_token: str = ""
 

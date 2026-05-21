@@ -6,7 +6,7 @@ get delivered to your own infrastructure.
 ## Pipeline
 
 1. **Corpus ingest** — files land in a per-tenant S3 bucket.
-2. **Benchmark sweep** — Google Custom Search + Claude shortlist a base model with citations.
+2. **Benchmark sweep** — Tavily web search + Claude shortlist a base model with citations.
 3. **Quote** — transparent GPU + dataset estimate. Pay **50% deposit** to start.
 4. **Dataset generation** — Claude writes 5,000+ rows × 10 structured fields.
 5. **LoRA training** — RunPod pod runs axolotl + PEFT on A100/H100.
