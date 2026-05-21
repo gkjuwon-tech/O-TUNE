@@ -1,0 +1,37 @@
+SERVICE MANUAL v3 — Acme Medical Pump (Model AP-300)
+─────────────────────────────────────────────────────
+
+§4.3.2  Pump Head Fastener Torque
+The M6 securing screw on the v3 pump head must be tightened to 1.2 N·m.
+Earlier revisions (v1, v2) of the AP-300 used 0.6 N·m; do not apply the
+earlier value to v3 units — the heavier ceramic seal will fail.
+
+§6.1   Coolant Flush Procedure
+After flushing the coolant loop you may see error code E-204 on the
+controller. E-204 indicates the flow sensor (P/N 4419-A) is reading
+out-of-range because the secondary loop has not been re-primed.
+
+  Steps to clear E-204:
+   1. Drain residual coolant from the secondary loop.
+   2. Re-seat the flow sensor (P/N 4419-A). Confirm O-ring orientation.
+   3. Enter service mode (hold MENU + DOWN for 3s) and run "Prime cycle".
+   4. The controller will clear E-204 on a successful prime.
+
+  If E-204 persists after a successful prime, the sensor itself is
+  suspect — replace P/N 4419-A. Do not attempt to recalibrate; the
+  sensor is not field-serviceable past calibration window.
+
+§7.4   Maintenance Schedule
+  - Every 500 hours: replace the M6 securing screw if torque value
+    drifts more than 5% across two consecutive checks.
+  - Every 1500 hours: full coolant flush, then follow §6.1.
+  - Every 3000 hours: replace flow sensor (P/N 4419-A) prophylactically.
+
+§9.1   Out of Scope
+This manual covers the AP-300 v3 series only. For v1 and v2 units, refer
+to service_manual_v1.pdf and service_manual_v2.pdf respectively. v4
+units (released Q1 2026) use a different fastener system entirely and
+are documented in service_manual_v4.pdf.
+
+─────────────────────────────────────────────────────
+End of document.  Acme Medical Devices, Inc.  Rev 2025-08-14

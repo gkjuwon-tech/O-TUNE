@@ -1,0 +1,212 @@
+/* Login — landing tone (cream bg, ink text, accent blue, no purple gradients) */
+
+.page {
+  position: relative;
+  z-index: 1;
+  padding: 56px 0 88px;
+  min-height: calc(100vh - 64px);
+}
+
+.frame {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 72px;
+  align-items: start;
+}
+@media (max-width: 960px) {
+  .frame { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ── Left — marketing copy ─────────────────────────── */
+.left { padding-top: 24px; }
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--ink-4);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--ink);
+  margin: 0 0 22px;
+  max-width: 14ch;
+}
+
+.sub {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-3);
+  margin: 0 0 28px;
+  max-width: 44ch;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.list li {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 12px;
+  align-items: start;
+  color: var(--ink-3);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 8px;
+  justify-self: center;
+}
+
+/* ── Right — sign-in card ──────────────────────────── */
+.right {
+  display: flex;
+  justify-content: stretch;
+}
+
+.card {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(14, 17, 22, 0.02), 0 18px 50px -28px rgba(14, 17, 22, 0.18);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg-2);
+}
+.cardLabel {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-3);
+}
+.cardDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #18A957;
+}
+
+.cardBody { padding: 32px 28px 22px; }
+
+.cardTitle {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+.cardSub {
+  font-size: 14px;
+  color: var(--ink-3);
+  margin: 0 0 24px;
+}
+
+.error {
+  background: #fff5f5;
+  border: 1px solid #f1c0c0;
+  color: #91241c;
+  padding: 11px 14px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+/* providers */
+.providers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.provider {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 13px 18px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  cursor: pointer;
+  transition: background 140ms ease, border-color 140ms ease, color 140ms ease, transform 140ms ease;
+  border: 1px solid var(--rule-strong);
+  background: var(--surface);
+  color: var(--ink);
+}
+.provider:hover:not(:disabled) {
+  background: var(--bg-2);
+  border-color: var(--ink-4);
+}
+.provider:active:not(:disabled) { transform: translateY(1px); }
+.provider:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.providerGoogle svg { flex: 0 0 18px; }
+
+.providerApple {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--surface);
+}
+.providerApple:hover:not(:disabled) {
+  background: #1a1d23;
+  border-color: #1a1d23;
+}
+.providerApple svg { color: var(--surface); flex: 0 0 18px; }
+
+.fine {
+  margin-top: 22px;
+  font-size: 12px;
+  color: var(--ink-4);
+  line-height: 1.55;
+  text-align: center;
+}
+.fine a {
+  color: var(--ink-2);
+  border-bottom: 1px solid var(--ink-5);
+  padding-bottom: 1px;
+}
+.fine a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.cardFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  border-top: 1px solid var(--rule);
+  background: var(--bg-2);
+  font-size: 12.5px;
+  color: var(--ink-4);
+}
+.cardFoot a {
+  color: var(--ink-2);
+  font-family: var(--font-mono);
+}
+.cardFoot a:hover { color: var(--accent); }

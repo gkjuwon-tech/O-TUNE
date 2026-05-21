@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: otune
+      POSTGRES_PASSWORD: otune
+      POSTGRES_DB: otune
+    ports: ["5432:5432"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U otune"]
+      interval: 5s
+      retries: 10
+
+  api:
+    build: ./api
+    env_file: ./api/.env
+    environment:
+      OTUNE_DATABASE_URL: postgresql+psycopg://otune:otune@db:5432/otune
+      OTUNE_FRONTEND_URL: http://localhost:3000
+    depends_on:
+      db:
+        condition: service_healthy
+    ports: ["8000:8000"]
+
+  web:
+    image: node:20-alpine
+    working_dir: /app
+    command: sh -c "npm install --no-audit --no-fund && npm run dev"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    volumes: ["./web:/app"]
+    ports: ["3000:3000"]
+    depends_on: [api]
+
+volumes:
+  pgdata:

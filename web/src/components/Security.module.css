@@ -1,0 +1,32 @@
+.section { padding: 112px 0; border-top: 1px solid var(--rule); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+}
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; gap: 40px; } }
+
+.head { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 14px; }
+@media (max-width: 900px) { .head { position: static; } }
+.h2 { font-size: clamp(28px, 3.2vw, 38px); letter-spacing: -0.025em; line-height: 1.1; }
+.sub { font-size: 15.5px; line-height: 1.6; color: var(--ink-3); max-width: 40ch; }
+.contact { font-size: 14px; line-height: 1.6; color: var(--ink-3); margin-top: 12px; }
+.contact a { color: var(--ink); border-bottom: 1px solid var(--ink-5); padding-bottom: 1px; }
+.contact a:hover { color: var(--accent); border-color: var(--accent); }
+
+.list { border-top: 1px solid var(--rule); }
+.row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+@media (max-width: 700px) {
+  .row { grid-template-columns: 1fr; gap: 6px; }
+}
+.k { font-size: 14px; font-weight: 500; color: var(--ink); letter-spacing: -0.005em; }
+.v { font-size: 14.5px; color: var(--ink-3); line-height: 1.6; max-width: 56ch; }
