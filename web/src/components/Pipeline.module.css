@@ -1,0 +1,84 @@
+.section { padding: 112px 0; border-top: 1px solid var(--rule); }
+
+.head { display: flex; flex-direction: column; gap: 16px; margin-bottom: 72px; max-width: 720px; }
+.h2 {
+  font-size: clamp(30px, 3.6vw, 42px);
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+.steps { display: flex; flex-direction: column; gap: 88px; }
+
+.step {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 72px;
+  align-items: start;
+}
+@media (max-width: 900px) { .step { grid-template-columns: 1fr; gap: 32px; } }
+.flip { grid-template-columns: 1.15fr 1fr; }
+.flip .copy { order: 2; }
+.flip .viz { order: 1; }
+@media (max-width: 900px) {
+  .flip { grid-template-columns: 1fr; }
+  .flip .copy { order: 1; }
+  .flip .viz { order: 2; }
+}
+
+.copy { padding-top: 8px; }
+.n {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-4);
+  margin-bottom: 18px;
+}
+.stepTitle {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 14px;
+  max-width: 22ch;
+}
+.body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-3);
+  max-width: 44ch;
+}
+
+.viz { width: 100%; }
+
+.mock {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(14, 17, 22, 0.02), 0 12px 36px -20px rgba(14, 17, 22, 0.14);
+}
+.mockHead {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg-2);
+}
+.mockLabel { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); }
+.mockDot { width: 7px; height: 7px; border-radius: 50%; background: #18A957; }
+.mockCode {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  padding: 18px 18px 16px;
+  white-space: pre;
+  overflow-x: auto;
+}
+.mockFoot {
+  display: flex;
+  padding: 10px 14px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink-4);
+}

@@ -1,0 +1,56 @@
+.wrap {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+  background: var(--bg);
+}
+@media (max-width: 880px) { .wrap { grid-template-columns: 1fr; } }
+
+.side {
+  position: sticky; top: 0;
+  height: 100vh;
+  border-right: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(124,92,255,0.05), transparent 40%), var(--bg);
+  padding: 22px 18px;
+  display: flex; flex-direction: column; gap: 22px;
+}
+@media (max-width: 880px) { .side { position: relative; height: auto; } }
+
+.brand {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-weight: 700; letter-spacing: 0.08em; font-size: 16px; color: var(--text);
+  padding: 6px 4px;
+}
+.mark {
+  width: 22px; height: 22px; border-radius: 7px;
+  background: linear-gradient(140deg, #7c5cff, #22d3ee);
+  box-shadow: 0 6px 18px -8px rgba(124,92,255,0.6);
+}
+.apos { color: var(--accent); }
+
+.nav { display: flex; flex-direction: column; gap: 2px; }
+.link {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 10px 12px; border-radius: 10px;
+  color: var(--text-dim); font-size: 14px;
+  transition: background 160ms, color 160ms;
+}
+.link:hover { background: rgba(255,255,255,0.04); color: var(--text); }
+.active {
+  background: linear-gradient(180deg, rgba(124,92,255,0.18), rgba(124,92,255,0.06));
+  color: var(--text);
+  border: 1px solid rgba(124,92,255,0.3);
+}
+
+.tenant {
+  margin-top: auto;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+}
+.tenantName { font-weight: 600; font-size: 14px; }
+.tenantPlan { color: var(--text-mute); font-size: 12px; margin-top: 4px; }
+
+.main { padding: 32px 40px 80px; max-width: 1240px; }
+@media (max-width: 880px) { .main { padding: 24px; } }

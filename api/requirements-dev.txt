@@ -1,0 +1,12 @@
+# Local training + inference for dev mode (Qwen-0.5B).
+# Keep heavy ML deps out of the prod requirements so the API container stays small.
+
+torch==2.4.1
+transformers==4.45.2
+peft==0.13.2
+datasets==3.0.1
+accelerate==1.0.1
+safetensors==0.4.5
+sentencepiece==0.2.0
+tokenizers==0.20.1
+huggingface-hub==0.25.2
